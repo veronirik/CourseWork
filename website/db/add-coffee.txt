@@ -1,0 +1,19 @@
+-- database: c:\Users\mazgu\Desktop\course-veronika\website\db\database.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+CREATE TABLE IF NOT EXISTS coffee (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_url TEXT,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL
+);
+
+INSERT INTO coffee (image_url, title, content)
+VALUES 
+('/assets/fuego.png', 'ГВАТЕМАЛА ФУЭГО', 'Сладкий кофе с нотами апельсина, сухофруктов и молочного шоколада.'),
+('/assets/fuego.png', 'ГВАТЕМАЛА ФУЭГО', 'Сладкий кофе с нотами апельсина, сухофруктов и молочного шоколада.'),
+('/assets/fuego.png', 'ГВАТЕМАЛА ФУЭГО', 'Сладкий кофе с нотами апельсина, сухофруктов и молочного шоколада.'),
+('/assets/fuego.png', 'ГВАТЕМАЛА ФУЭГО', 'Сладкий кофе с нотами апельсина, сухофруктов и молочного шоколада.'),
+('/assets/fuego.png', 'ГВАТЕМАЛА ФУЭГО', 'Сладкий кофе с нотами апельсина, сухофруктов и молочного шоколада.'),
+('/assets/fuego.png', 'ГВАТЕМАЛА ФУЭГО', 'Сладкий кофе с нотами апельсина, сухофруктов и молочного шоколада.');

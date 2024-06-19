@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр заявок</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2 class="my-3">Список заявок</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Почта</th>
+                <th>Сообщение</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each requests}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{visitor_name}}</td>
+                <td>{{visitor_email}}</td>
+                <td>{{visitor_message}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/" class="btn1 btn1-outline-secondary">Вернуться назад</a>
+</div>
+</body>
+</html>

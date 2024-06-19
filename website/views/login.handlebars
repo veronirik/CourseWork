@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ Вход</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <div class="container-fluid d-flex align-items-center justify-content-center">
+    <div class="text-dark form-container">
+      <div class="container mt-5">
+        <h1>Вход администратора</h1>
+        {{#if error}}
+          <div class="alert alert-danger">{{error}}</div>
+        {{/if}}
+        <form action="/admin-login" method="POST">
+          <div class="mb-3">
+            <label for="login" class="form-label-control">Логин</label>
+            <input type="text" class="form-control" id="login" name="login" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label-control">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-outline-secondary">Войти</button>
+          <a href="/" class="btn btn-outline-secondary">Вернуться назад</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

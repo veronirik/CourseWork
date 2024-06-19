@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar for Filters -->
+        <div class="col-md-3">
+            <h1>Фильтры</h1>
+            <form id="filter-form" method="GET" action="/coffee_catalog">
+                <div class="form-group">
+                    <label for="country">Страна производитель:</label>
+                    <select id="country" name="country" class="form-control">
+                        <option value="all">Все</option>
+                        {{#each countries}}
+                            <option value="{{this.country}}" {{#if this.isSelected}}selected{{/if}}>{{this.country}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="processing">Способ обработки:</label>
+                    <select id="method_processing" name="method_processing" class="form-control">
+                        <option value="all">Все</option>
+                        {{#each method_processings}}
+                            <option value="{{this.method_processing}}" {{#if this.isSelected}}selected{{/if}}>{{this.method_processing}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roast">Степень обжарки:</label>
+                    <select id="roast_degree" name="roast_degree" class="form-control">
+                        <option value="all">Все</option>
+                        {{#each roasts}}
+                            <option value="{{this.roast_degree}}" {{#if this.isSelected}}selected{{/if}}>{{this.roast_degree}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Цена:</label>
+                    <select id="cost" name="cost" class="form-control">
+                        <option value="all">Все</option>
+                        {{#each priceOptions}}
+                            <option value="{{this.value}}" {{#if this.isSelected}}selected{{/if}}>{{this.label}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <button type="submit" class="btn2 btn1-outline-secondary">Фильтр</button>
+                <a href="/#start" class="btn2 btn1-outline-secondary">Вернуться на главную</a>
+            </form>
+        </div>
+
+        <!-- Main content for Coffee List -->
+        <div class="col-md-9">
+            <div class="row">
+                {{#each coffeeList}}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{this.img_catalog}}" class="card-img-top" alt="{{this.title}}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.title}}</h5>
+                                <p class="card-text">{{this.content}}</p>
+                                <p class="card-text">Цена: {{this.cost}} руб.</p>
+                                <p class="card-text">Страна производитель: {{this.country}}</p>
+                                <p class="card-text">Способ обработки: {{this.method_processing}}</p>
+                                <p class="card-text">Степень обжарки: {{this.roast_degree}}</p>
+                                <button class="btn1 btn1-outline-secondary add-cart-btn" data-id="{{this.id}}" data-title="{{this.title}}" data-cost="{{this.cost}}">Добавить в корзину</button>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+    $(document).on("click",".add-cart-btn",function(e) {
+        const id = $(this).data('id')
+        const title = $(this).data('title')
+        const cost = $(this).data('cost')
+        
+        let products = localStorage.getItem('cart')
+        if (!products) {
+            products = []
+        } else {
+            try {
+                products = JSON.parse(products)
+            } catch {
+                products = []
+            }
+        }
+
+        products.push({
+            id,
+            title,
+            cost,
+        })
+        
+        localStorage.setItem('cart', JSON.stringify(products))
+        alert(`Товар "${title}" добавлен в корзину`)
+    });
+}); 
+</script>

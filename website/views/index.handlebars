@@ -1,0 +1,174 @@
+{{!-- main.handlebars layout will be used --}}
+{{#> main}}
+<div class="content">
+<section class="hero-section d-flex align-items-center">
+  <div class="container text-end text-white">
+    <h1>КУПИ. <br> ВЫПЕЙ. <br> <span class="restart" >RESTART;</span></h1>
+    <a href="/coffee_catalog" type="button" class="btn btn-outline-secondary ">ВЫБРАТЬ</a>
+  </div>
+</section>
+
+<!-- география -->
+
+<div class="container text-center" id="geo">
+  <a href="/cart" class="btn1 btn1-outline-secondary">Перейти в корзину</a>
+  <a  href="/admin/login" class="btn1 btn1-outline-secondary">Войти в admin</a>
+  <h2 class="my-5" id="coffee_countries">ГЕОГРАФИЯ КОФЕ</h2>
+  <h5 class="mb-5">Мы предлагаем сорта кофе из лидирующих стран в сфере высококачественного кофе:</h5>
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-5">
+      <a href="/ephiopia_info" class="text-decoration-none">
+        <div class="card bg-dark text-white">
+          <img src="/assets/ephiopia1.jpg" class="card-img" alt="Эфиопия">
+          <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+            <h5 class="card-title">ЭФИОПИЯ</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-5">
+      <a href="/guatemala_info" class="text-decoration-none">
+        <div class="card bg-dark text-white">
+          <img src="/assets/gvatemala1.jpg" class="card-img" alt="Гватемала">
+          <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+            <h5 class="card-title">ГВАТЕМАЛА</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4 mb-5">
+      <a href="/mexico_info" class="text-decoration-none">
+        <div class="card bg-dark text-white">
+          <img src="/assets/mexica1.jpg" class="card-img" alt="Мексика">
+          <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+            <h5 class="card-title">МЕКСИКА</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- карусель -->
+
+<div class="container">
+  <h2 class="carousel-heading mt-5">ПОСЛЕДНИЕ ПОСТУПЛЕНИЯ</h2>
+  <div class="row">
+    <div class="col-md-10 col-center mx-auto mt-5">
+      <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- Wrapper for carousel items -->
+        <div class="carousel-inner">
+            {{#each (group coffee 3) as |group index|}}
+                <div class="carousel-item {{#if @first}}active{{/if}}">
+                    <div class="row">
+                        {{#each group}}
+                        <div class="col-sm-4">
+                            <div class="thumb-wrapper shadow">
+                                <div class="img-box">
+                                    <img src="{{this.img_catalog}}" class="img-fluid" alt="">
+                                </div>
+                                <div class="thumb-content">
+                                    <h5>{{this.title}}</h5>
+                                    <h6>{{this.content}}</h6>
+                                    <p class="card-text">Цена: {{this.cost}} руб.</p>
+                                    <p class="card-text">Страна производитель: {{this.country}}</p>
+                                    <p class="card-text">Способ обработки: {{this.method_processing}}</p>
+                                    <p class="card-text">Степень обжарки: {{this.roast_degree}}</p>
+                                </div>						
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+      <!-- Carousel controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col text-center mt-4">
+      <a href="/coffee_catalog" class="btn2 btn1-outline-secondary">Перейти в каталог</a>
+    </div>
+  </div>
+</div>
+
+<section class="delivery-section d-flex align-items-center" id ="delivery">
+    <div class="container text-center text-white">
+      <h3 class="my-5">О ДОСТАВКЕ</h3>
+      <h5 class="lead">Мы находимся в Челябинске. Вы можете забрать товары из нашего магазина или заказать доставку по городу в пределах города. Также доступна доставка курьером.</h5>
+    </div>
+</section>
+
+<div class="container my-5" id ="conti">
+    <h2 class="text-center mb-4">Наши контакты</h2>
+    <h4 class="text-center mb-5">Вы можете написать в поддержку по нашим контактам или оформив заявку:</h4>
+    <div class="row">
+        <div class="col-mb-4">
+            <form action="/submit-form" method="post">
+                <div class="mb-3">
+                    <label for="visitor_email" class="form-label">ВАШ EMAIL</label>
+                    <input type="email" class="form-control" id="visitor_email" name="visitor_email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="visitor_name" class="form-label">ВАШЕ ИМЯ</label>
+                    <input type="text" class="form-control" id="visitor_name" name="visitor_name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="visitor_message" class="form-label">ОПИШИТЕ ВОПРОС</label>
+                    <textarea class="form-control" id="visitor_message" rows="3" name="visitor_message" required></textarea>
+                </div>
+                <button type="submit-form" class="btn1 btn1-outline-secondary">ОТПРАВИТЬ</button>
+                <label><input type="checkbox" onChange="document.querySelector('.btn1 btn1-outline-secondary').disabled=(this.checked ? false : true);"> Я согласен с правилами обработки данных</label>
+            </form>
+        </div>
+    </div>
+</div>
+
+<section class="contact-section bg-black">
+    <div class="container px-4 px-lg-5 mt-4">
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Адрес</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-100">ГДЕ-ТО ТАМ, 22 ГДЕ-ТО, ЧЕЛЯБИНСК</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Email</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-100">COFFEE_HERE@GMAIL.COM</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="card py-4 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas text-primary mb-2"></i>
+                        <h4 class="text-uppercase m-0">Телефон</h4>
+                        <hr class="my-4 mx-auto" />
+                        <div class="small text-black-100">+1 123 456 78 90</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+{{/main}}

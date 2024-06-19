@@ -1,0 +1,417 @@
+body {
+  margin: 0;
+  font-family: 'Cactus Classical Serif', serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 1rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-link {
+  font-family: 'Cactus Classical Serif', serif;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  color: #000;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.navbar-brand {
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.hero-section {
+  background: url('/assets/turka2.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+
+.hero-section .container {
+  position: absolute;
+  right: 3rem;
+}
+
+
+.btn-outline-light {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ntcn */
+
+
+h1 {
+  font-family: 'Playfair Display SC', bold;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  text-align: right; /* Align text to the right */
+}
+
+h1 .restart {
+  color: rgb(0, 0, 0);
+}
+
+h2 {
+  font-family: 'Playfair Display SC', bold;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-size: 4rem;
+  text-align: center; /* Align text to the center */
+}
+
+h3 {
+  font-family: 'Playfair Display SC', bold;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 4rem;
+  text-align: center; /* Align text to the center */
+}
+
+h4 {
+  font-family: 'Cactus Classical Serif', serif;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
+  text-align: center; /* Align text to the center */
+}
+
+
+
+.carousel-heading h2{
+  font-family: 'Playfair Display SC', bold;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-size: 4rem;
+  text-align: center;
+  margin: 50px;
+}
+
+h5 {
+  font-family: 'Cactus+Classical+Serif', serif;
+  font-weight: serif;
+  font-size: 1.5rem;
+  text-align: center; /* Align text to the center */
+}
+
+h6 {
+  font-family: 'Cactus+Classical+Serif', serif;
+  font-weight: serif;
+  font-size: 0.9rem;
+  text-align: center; /* Align text to the center */
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.btn {
+  display: inline-block;
+  font-family: 'Playfair Display SC', bold;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn-outline-secondary {
+  color: #ffffff; /* Initial text color */
+  border-color: #ffffff;
+}
+
+.btn-outline-secondary:hover {
+  color: #000000; /* Black text on hover */
+  background-color: #ffffff; /* White background on hover */
+  border-color: #ffffff; /* Keep border white on hover */
+}
+
+
+.btn1 {
+  display: inline-block;
+  font-family: 'Playfair Display SC', bold;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  background-color: transparent;
+  border: 1px solid #000000;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.btn1-outline-secondary {
+  color: #000000; /* Initial text color */
+  border-color: #000000;
+}
+
+.btn1-outline-secondary:hover {
+  color: #ffffff; /* Black text on hover */
+  background-color: #000000; /* White background on hover */
+  border-color: #000000; /* Keep border white on hover */
+}
+
+.btn2 {
+  display: inline-block;
+  font-family: 'Playfair Display SC', bold;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  background-color: transparent;
+  border: 1px solid #000000;
+  padding: .75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: .25rem;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+/* география */
+
+.card-img-overlay {
+  transition: all 0.3s ease;
+}
+
+.card:hover .card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* карусель */
+
+.col-center {
+	margin: 0 auto;
+	float: none !important;
+}
+.carousel {
+	margin: 30px auto 60px;
+	padding: 0 80px;
+}
+.carousel .item {
+    text-align: center;
+	overflow: hidden;
+}
+.carousel .item h4 {
+	font-family: 'Varela Round', sans-serif;
+}
+.carousel .item img {
+	max-width: 100%;
+	display: inline-block;
+}
+
+.carousel .item .btn i {
+	font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.carousel .thumb-wrapper {
+	margin: 5px;
+	text-align: left;
+  background: #fff;
+  /* box-shadow: 0px 2px 2px rgb(0, 0, 0);    */
+}
+.carousel .thumb-content {
+	padding: 15px;
+	font-size: 13px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black; /* Измените цвет стрелок на черный */
+  border-radius: 50%; /* Сделайте их круглыми */
+  width: 50px; /* Увеличьте размер */
+  height: 50px; /* Увеличьте размер */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; /* Ширина переключателей */
+}
+
+.carousel-container {
+  position: relative;
+}
+.carousel-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* доставка */
+
+
+.delivery-section {
+  background: url('/assets/cars1.jpg') no-repeat center center/cover;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-section .container {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+
+/* контакты */
+
+.contact-info {
+  font-family: 'Cactus Classical Serif', serif;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-info a {
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.form-label {
+  font-size: 0.9rem;
+}
+
+.form-control {
+  border: 1px solid #000;
+  border-radius: .50rem;
+  font-size: 1.5rem;
+}
+
+
+.contact-section {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.contact-section .container {
+  max-width: 1140px;
+}
+
+.contact-section .card {
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-section .card:hover {
+  transform: translateY(-10px);
+}
+
+.contact-section .card-body {
+  padding: 30px;
+}
+
+.contact-section .card-body i {
+  font-size: 2rem;
+  color: #242424;
+  margin-bottom: 15px;
+}
+
+.contact-section .card-body h4 {
+  font-family: 'Playfair Display SC', serif;
+  color: #242424;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-section .card-body hr {
+  width: 50px;
+  border-top: 3px solid #424242;
+  margin: 20px auto;
+}
+
+.contact-section .card-body .small {
+  font-size: 0.9rem;
+  color: #242424;;
+}
+
+
+
+
+/* подвал */
+
+.footer {
+  background-color: #000 !important; /* Убедимся, что фон действительно черный */
+  color: #fff;
+  margin-top: auto;
+}
+
+.footer-nav a {
+  font-family: 'Playfair Display SC', serif;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #ccc;
+}
+
+.btn1.btn1-outline-secondary:disabled {
+  background-color: #d3d3d3; /* Светло-серый цвет фона */
+  color: #6c757d; /* Серый цвет текста */
+  border-color: #d3d3d3; /* Цвет границы */
+  cursor: not-allowed; /* Указатель, показывающий, что действие невозможно */
+  opacity: 0.65; /* Немного уменьшает прозрачность для лучшей визуализации */
+}

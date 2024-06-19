@@ -1,0 +1,104 @@
+<div class="container">
+    <h1 class="my-3">Корзина покупок</h1>
+    <form id="services-form" method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Название кофе</th>
+                            <th>Общая сумма (₽)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Товары будут добавлены сюда через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <input type="hidden" name="cartData" id="hidden-cart-data">
+                <div class="mb-3">
+                    <label for="name" class="form-label-control">Ваше имя</label>
+                    <input type="text" pattern="[a-zA-Z\s]+" placeholder="Имя" inputmode="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label-control">Номер телефона</label>
+                    <input type="tel" pattern="[0-9]*" placeholder="8 (***) ***-**-**" inputmode="numeric" maxlength="11" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label-control">Почта</label>
+                    <input type="email" class="form-control" placeholder="example@mail.ru" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" id="email" name="email" required>
+                </div>
+                <button type="submit" id="order-button" class="btn1" disabled>Заказать</button>
+                <label><input type="checkbox" onChange="document.querySelector('.btn1').disabled=(this.checked ? false : true);"> Я согласен с правилами</label>
+                <a href="/" class="btn1 btn1-outline-secondary">Вернуться назад</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+        $(document).ready(function() {
+            // Функция для загрузки данных корзины из локального хранилища
+            function loadCart() {
+                const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+                let totalCost = 0;
+                $('#cart-items').empty();
+
+                cartData.forEach(item => {
+                    totalCost += item.cost;
+                    $('#cart-items').append(`
+                        <tr>
+                            <td>${item.title}</td>
+                            <td>${item.cost} ₽</td>
+                        </tr>
+                    `);
+                });
+
+                $('#cart-items').append(`
+                    <tr>
+                        <td><strong>Итого</strong></td>
+                        <td><strong>${totalCost} ₽</strong></td>
+                    </tr>
+                `);
+
+                $('#hidden-cart-data').val(JSON.stringify(cartData));
+            }
+
+            // Загрузка данных корзины при загрузке страницы
+            loadCart();
+
+            // Обработчик отправки формы заказа
+            $(document).on("submit","#services-form",function(event) {
+            //$('#services-form').on('submit', function(event) {
+                event.preventDefault();
+
+                const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+                const name = $('#name').val();
+                const phone = $('#phone').val();
+                const email = $('#email').val();
+
+                const orderData = {
+                    cart: cartData,
+                    name: name,
+                    phone: phone,
+                    email: email
+                };
+
+                $.ajax({
+                    url: '/cart-handler',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(orderData),
+                    success: function(response) {
+                        alert('Ваш заказ успешно оформлен!');
+                        localStorage.removeItem('cart'); // Очищаем корзину после успешного заказа
+                        window.location.href = '/'; // Перенаправление на главную страницу
+                    },
+                    error: function(error) {
+                        alert('Произошла ошибка при оформлении заказа. Попробуйте еще раз.');
+                    }
+                });
+            });
+        });
+    </script>

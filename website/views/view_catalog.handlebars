@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог кофе</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-3">Каталог кофе</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Страна производитель</th>
+                <th>Стоимость (₽)</th>
+                <th>Способ обжарки</th>
+                <th>Степень обжарки</th>
+                <th>Картинка товара</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each coffee}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{title}}</td>
+                <td>{{content}}</td>
+                <td>{{country}}</td>
+                <td>{{cost}}</td>
+                <td>{{method_processing}}</td>
+                <td>{{roast_degree}}</td>
+                <td><img src="{{img_catalog}}" width="200px" alt=""></td>
+                <td>
+                    <form action="/admin/delete_coffee" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="{{id}}">
+                        <button type="submit" class="btn1 btn1-secondary-outline">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <h2 class="my-3">Добавить новый кофе</h2>
+    <form action="/admin/add_coffee" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Название кофе</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Описание кофе</label>
+            <textarea class="form-control" id="content" name="content" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="country" class="form-label">Страна производитель</label>
+            <input type="text" class="form-control" id="country" name="country" required>
+        </div>
+        <div class="mb-3">
+            <label for="cost" class="form-label">Стоимость кофе (₽)</label>
+            <input type="number" class="form-control" id="cost" name="cost" required>
+        </div>
+        <div class="mb-3">
+            <label for="method_processing" class="form-label">Способ обжарки</label>
+            <input type="text" class="form-control" id="method_processing" name="method_processing" required>
+        </div>
+        <div class="mb-3">
+            <label for="roast_degree" class="form-label">Степень обжарки</label>
+            <input type="text" class="form-control" id="roast_degree" name="roast_degree" required>
+        </div>
+        <div class="mb-3">
+            <label for="img_catalog" class="form-label">Картинка(/assets/...)</label>
+            <input type="text" class="form-control" id="img_catalog" name="img_catalog" required>
+        </div>
+        <button type="submit" class="btn1 btn1-outline-secondary">Добавить</button>
+    </form>
+    <a href="/" class="btn1 btn1-outline-secondary">Вернуться назад</a>
+</div>
+</body>
+</html>

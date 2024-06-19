@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Просмотр заказов</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h2 class="my-3">Список заказов</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Заказ ID</th>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Почта</th>
+                <th>Название товара</th>
+                <th>Стоимость (₽)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each orders}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.products}}</td>
+                <td>{{this.total_cost}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/admin" class="btn1 btn1-outline-secondary">Вернуться назад</a>
+</div>
+</body>
+</html>
